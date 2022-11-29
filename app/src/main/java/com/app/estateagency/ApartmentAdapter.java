@@ -8,7 +8,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.app.estateagency.fragments.PlateFragment;
 
 import java.util.List;
 
@@ -38,6 +42,16 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
         holder.cost.setText(String.valueOf(apartment.getCost()));
         holder.description.setText(String.valueOf(1));
         holder.metro.setText(String.valueOf(apartment.getMetro()));
+
+        holder.card.setOnClickListener(view -> {
+            FragmentActivity activity = (FragmentActivity) holder.card.getContext();
+            PlateFragment fragment = PlateFragment.newInstance(apartment.getId());
+
+            activity.getSupportFragmentManager().beginTransaction()
+                    .addToBackStack(null)
+                    .replace(R.id.main_fragment, fragment)
+                    .commit();
+        });
     }
 
     @Override
@@ -51,13 +65,15 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
         public TextView cost;
         public TextView description;
         public TextView metro;
+        public CardView card;
 
         public ViewHolder(View view) {
             super(view);
-            image = view.findViewById(R.id.apart_image);
-            cost = view.findViewById(R.id.apart_cost);
-            description = view.findViewById(R.id.apart_description);
-            metro = view.findViewById(R.id.apart_metro);
+            image = view.findViewById(R.id.plate_item_image);
+            cost = view.findViewById(R.id.plate_item_cost);
+            description = view.findViewById(R.id.plate_item_description);
+            metro = view.findViewById(R.id.plate_item_metro);
+            card = view.findViewById(R.id.plate_item_cardview);
         }
     }
 }

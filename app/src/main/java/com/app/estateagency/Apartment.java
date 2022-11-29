@@ -1,12 +1,14 @@
 package com.app.estateagency;
 
 public class Apartment {
+    private int id;
     private int[] images;
     private int cost;
     private String apart_type;
     private String metro;
 
-    public Apartment(int[] images, int cost, String apart_type, String metro) {
+    public Apartment(int id, int[] images, int cost, String apart_type, String metro) {
+        this.id = id;
         this.images = images;
         this.cost = cost;
         this.apart_type = apart_type;
@@ -43,5 +45,13 @@ public class Apartment {
 
     public void setMetro(String metro) {
         this.metro = metro;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
