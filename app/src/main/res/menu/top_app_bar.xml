@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/navigation_home"
+        android:contentDescription="SHARE"
+        android:icon="@drawable/share_icon"
+        android:title="share"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/navigation_post"
+        android:title="Разместить" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:title="Профиль" />
+</menu>
